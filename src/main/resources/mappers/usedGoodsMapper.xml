@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ 
+<!-- xml문법이 들어간다 -->
+
+
+
+<!-- id ... DAO 메서드명 -->
+<mapper namespace="com.example.lesson02.dao.UsedGoodsDAO">
+	<select id="selectUsedGoodsList" resultType="com.example.lesson02.model.UsedGoods">
+		SELECT
+			*
+		FROM
+			`used_goods`
+	</select>
+
+</mapper>
