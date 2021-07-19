@@ -28,4 +28,27 @@ public class ReviewRestController {
 //		}
 		return reviewBO.getReview(id);
 	}
+	
+	//요청 URL : http://localhost/lesson03/ex02
+	@RequestMapping("/lesson03/ex02")
+	public String ex02() {
+		Review review=new Review();
+		review.setStoreName("보람 삼겹살");
+		review.setMenu("삼겹혼밥세트");
+		review.setUserName("신보람");
+		review.setPoint(4.5);
+		review.setReview("혼자 먹기 딱 적당하네요.");
+		
+		int row=reviewBO.insertReview(review); //INSERT 된 row 수를 리턴 받는다.
+		
+		return "success row count:"+row; // @ ResponseBody로 인해 String 값 자체가 responseBody에 담긴다
+	}
+	
+	@RequestMapping("/lesson03/ex02/2")
+	public String ex02_2() {
+		int row=reviewBO.insertReviewAsField("도미노피자","콤비네이션R","신바다",5.0,"역시 맛있다!!!");
+		return "success row count:"+row;
+	}
+	
+	
 }

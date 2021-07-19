@@ -16,4 +16,11 @@ public class ReviewBO {
 		return reviewDAO.selectReview(id);
 	}
 	
+	public int insertReview(Review review) {// INSERT가 작용하는 메서드의 반환값이 int면 자동으로 저장되는 row 수를 반환
+		return reviewDAO.insertReview(review);
+	}
+	
+	public int insertReviewAsField(String storeName,String menu,String userName,double point, String review) {
+		return reviewDAO.insertReviewAsField(storeName,menu,userName,point,review);
+	}
 }
