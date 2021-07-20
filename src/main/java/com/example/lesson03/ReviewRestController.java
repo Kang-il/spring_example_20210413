@@ -13,6 +13,9 @@ public class ReviewRestController {
 	
 	@Autowired
 	private ReviewBO reviewBO;
+	
+	
+	//#####SELECT EX
 	//요청 URL : http://localhost:8080/lesson03/ex01
 	@RequestMapping("/lesson03/ex01")
 	public Review ex01(
@@ -29,6 +32,7 @@ public class ReviewRestController {
 		return reviewBO.getReview(id);
 	}
 	
+	//#####INSERT EX
 	//요청 URL : http://localhost/lesson03/ex02
 	@RequestMapping("/lesson03/ex02")
 	public String ex02() {
@@ -51,4 +55,23 @@ public class ReviewRestController {
 	}
 	
 	
+	//#####UPDATE EX
+	//요청 URL : http://localhost:8080/lesson03/ex03?id=21&review=삼겹살은 역시 맛있어~~
+	@RequestMapping("/lesson03/ex03")
+	public String ex03(
+			@RequestParam("id") int id
+			,@RequestParam("review") String review
+			) {
+		int row = reviewBO.updateReview(id,review);
+		return "변경완료 : " + row ;
+	}
+	
+	
+	//#####DELETE EX
+	//요청 URL : http://localhost:8080/lesson03/ex04?id=20
+	@RequestMapping("/lesson03/ex04")
+	public String ex04(@RequestParam( value="id",required=true ) int id) {
+		int row=reviewBO.deleteReviewById(id);
+		return "삭제완료 : " + row;
+	}
 }

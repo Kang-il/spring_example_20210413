@@ -3,7 +3,10 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
  
+ 
  <mapper namespace="com.example.lesson03.dao.ReviewDAO">
+ 
+  	<!--####### UPDATE Query ####### -->
  	<select id="selectReview" parameterType="int" resultType="com.example.lesson03.model.Review">
  		SELECT
  			`id`
@@ -19,7 +22,8 @@
  		WHERE
  			`id`= #{id}
  	</select>
- 	
+
+ 	<!--####### INSERT Query ####### -->
  	<insert id="insertReview" parameterType="com.example.lesson03.model.Review"> <!-- resultType은 명시하지 않는다 -->
  		INSERT INTO `review`
  			(
@@ -65,4 +69,24 @@
  				,NOW()
  			)
  	</insert>
+ 	
+ 	<!--####### UPDATE Query ####### -->
+ 	<update id="updateReview" parameterType="map">
+ 		UPDATE `review`
+ 		SET
+ 		`review`=#{review}
+ 		,`updatedAt`= NOW()
+ 		WHERE
+ 		`id`=#{id}
+ 	</update>
+ 	
+ 	<!--####### DELETE Query ####### -->
+ 	<delete id="deleteReviewById" parameterType="int">
+ 		DELETE 
+ 		FROM
+ 			`review`
+ 	 	WHERE
+ 	 		`id`=#{id}
+ 	</delete>
+ 	
  </mapper>
