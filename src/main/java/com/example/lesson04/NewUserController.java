@@ -36,7 +36,7 @@ public class NewUserController {
 			) {
 		//Request->Response
 		
-		newUserBO.insertNewUser(name, yyyymmdd, email, introduce);
+		newUserBO.addNewUser(name, yyyymmdd, email, introduce);
 		
 		//return : 성공이 되었는지 태그를 입혀 다른 화면으로 넘길 것
 		//결과jsp
