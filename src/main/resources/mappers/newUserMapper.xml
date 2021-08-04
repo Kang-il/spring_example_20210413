@@ -40,4 +40,14 @@
  		LIMIT 1
  		
  	</select>
+ 	
+ 	<select id="existNewUserByName" parameterType="String" resultType="Boolean" >
+ 		SELECT
+ 			IF(COUNT(1)=0 ,0,1) 
+ 		FROM
+ 			`new_user`
+ 		WHERE
+ 			`name`=#{name}
+ 	</select>
+ 	
  </mapper>
